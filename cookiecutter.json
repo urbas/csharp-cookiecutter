@@ -1,4 +1,6 @@
 {
   "assembly_name": "Foo.Bar",
+  "root_namespace": "{{ cookiecutter.assembly_name }}",
+  "author": "Cody McCodeface",
   "appveyor_nuget_api_key": "Get the API key from https://www.nuget.org/account and encrypt it at https://ci.appveyor.com/tools/encrypt"
 }
