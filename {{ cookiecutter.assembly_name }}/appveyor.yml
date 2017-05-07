@@ -1,0 +1,28 @@
+version: 0.0.1-b{build}
+image: Visual Studio 2017
+before_build:
+- ps: nuget restore
+build:
+  project: {{ cookiecutter.assembly_name }}.sln
+  verbosity: minimal
+before_package:
+  - ps: 'cd {{ cookiecutter.assembly_name }}; nuget pack {{ cookiecutter.assembly_name }}.csproj'
+artifacts:
+  - path: {{ cookiecutter.assembly_name }}/bin/Debug/{{ cookiecutter.assembly_name }}.dll
+    name: {{ cookiecutter.assembly_name }}.dll
+  - path: {{ cookiecutter.assembly_name }}/bin/Debug/{{ cookiecutter.assembly_name }}.xml
+    name: {{ cookiecutter.assembly_name }}.xml
+  - path: '{{ cookiecutter.assembly_name }}/*.nupkg'
+assembly_info:
+  patch: true
+  file: '**\AssemblyInfo.*'
+  assembly_version: '{version}'
+  assembly_file_version: '{version}'
+  assembly_informational_version: '{version}'
+deploy:
+  provider: NuGet
+  api_key:
+    secure: {{ cookiecutter.appveyor_nuget_api_key }}
+  artifact: /.*\.nupkg/
+  on:
+    appveyor_repo_tag: true

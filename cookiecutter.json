@@ -1,4 +1,4 @@
 {
-  "project_name": "Python Boilerplate",
-  "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }}"
+  "assembly_name": "Foo.Bar",
+  "appveyor_nuget_api_key": "Get the API key from https://www.nuget.org/account and encrypt it at https://ci.appveyor.com/tools/encrypt"
 }

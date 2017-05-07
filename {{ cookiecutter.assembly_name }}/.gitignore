@@ -6,6 +6,7 @@ obj/
 
 # NuGet
 packages/
+*.nupkg
 
 # IntelliJ
 /.idea/
