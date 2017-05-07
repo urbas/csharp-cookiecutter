@@ -1,0 +1,12 @@
+# Visual Studio
+.vs/
+bin/
+obj/
+*.user
+
+# NuGet
+packages/
+
+# IntelliJ
+/.idea/
+*.iml
